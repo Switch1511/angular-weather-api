@@ -1,1 +1,1 @@
-# angular-weather-api-
+# angular-weather-api
