@@ -14,10 +14,15 @@ export class FooterComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.apiRequest.getAPI().subscribe((data) => {
-      this.data = data
-      console.log(this.data)
-    });
+    this.apiRequest.getAPI("London").subscribe({
+      next: (data) => {
+        this.data = data
+        console.log(this.data)
+      },
+      error: (error) => {
+        console.log(error)
+      }}
+    );
 
   }
 
