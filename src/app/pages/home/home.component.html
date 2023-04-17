@@ -1,0 +1,6 @@
+<form [formGroup]="formCity">
+  <div class="form-group">
+    <input type="text" class="form-control" name="city" id="city" formControlName="city" required />
+    <button type="button" (click)="requestAPI()">Pesquisar</button>
+  </div>
+</form>
