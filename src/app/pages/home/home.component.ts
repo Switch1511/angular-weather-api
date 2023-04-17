@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   temp!: number;
   temp_min!: number;
   temp_max!: number;
+  date!: Date;
 
   ngOnInit(): void {
     this.formCity = new FormGroup({
@@ -32,14 +33,17 @@ export class HomeComponent implements OnInit {
   requestAPI(){
     const city = this.formCity.value.city;
 
+
     this.apiRequest.getAPI(city).subscribe({
       next: (data: Weather) => {
         this.errorFlag = false
         this.city = data.name
         this.country = data.sys.country
-        this.temp = data.main.temp
-        this.temp_min = data.main.temp_min
-        this.temp_max = data.main.temp_max
+        this.temp = Math.ceil(data.main.temp)
+        this.temp_min = Math.ceil(data.main.temp_min)
+        this.temp_max = Math.ceil(data.main.temp_max)
+        this.date = new Date("")
+
         console.log(data)
       },
       error: (error) => {
