@@ -10,10 +10,14 @@ export class FooterComponent implements OnInit {
 
   constructor(private apiRequest: ApiRequestService) { }
 
+  data!: any;
 
 
   ngOnInit(): void {
-   this.apiRequest.getAPI()
+    this.apiRequest.getAPI().subscribe((data) => {
+      this.data = data
+      console.log(this.data)
+    });
 
   }
 
