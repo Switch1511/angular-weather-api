@@ -4,3 +4,13 @@
     <button type="button" (click)="requestAPI()">Pesquisar</button>
   </div>
 </form>
+<div *ngIf="!errorFlag; else error">
+  <p>{{ city }}</p>
+  <p>{{ country }}</p>
+  <p>{{ temp }}</p>
+  <p>{{ temp_min }}</p>
+  <p>{{ temp_max }}</p>
+</div>
+<ng-template #error>
+  <p>Não existe</p>
+</ng-template>
