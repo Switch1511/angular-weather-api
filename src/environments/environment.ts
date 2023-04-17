@@ -14,3 +14,5 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+
+export const API = "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=5d025fc3c1827369a4a3e0795cd85043"
