@@ -10,12 +10,12 @@
         </button>
       </div>
     </form>
-    <div class="weather_info" *ngIf="!errorFlag; else error">
-      <h1>{{ city }} / {{ country }}</h1>
+    <div [ngClass]="city != '' ? 'weather_info' : 'weather_none'" *ngIf="!errorFlag; else error">
+      <h1>{{ city }}, {{ country }}</h1>
       <p>{{ date | date:'fullDate'}}</p>
       <h2>{{ temp }}<p>°C</p></h2>
+      <h3>{{ clouds }}</h3>
       <p>{{ temp_min }}°C / {{ temp_max }}°C</p>
-      <p></p>
     </div>
     <ng-template #error>
       <p>Não existe</p>

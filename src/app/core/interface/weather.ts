@@ -11,6 +11,11 @@ export interface Weather {
   },
   wind: {
     spreed: number
-  }
+  },
+  weather: [
+    {
+    main: string
+    }
+  ]
 
 }

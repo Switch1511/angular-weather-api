@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   temp!: number;
   temp_min!: number;
   temp_max!: number;
+  clouds!: string;
   date!: Date;
 
   ngOnInit(): void {
@@ -36,13 +37,14 @@ export class HomeComponent implements OnInit {
 
     this.apiRequest.getAPI(city).subscribe({
       next: (data: Weather) => {
-        this.errorFlag = false
-        this.city = data.name
-        this.country = data.sys.country
-        this.temp = Math.ceil(data.main.temp)
-        this.temp_min = Math.ceil(data.main.temp_min)
-        this.temp_max = Math.ceil(data.main.temp_max)
-        this.date = new Date("")
+        this.errorFlag = false;
+        this.city = data.name;
+        this.country = data.sys.country;
+        this.temp = Math.ceil(data.main.temp);
+        this.temp_min = Math.ceil(data.main.temp_min);
+        this.temp_max = Math.ceil(data.main.temp_max);
+        this.clouds = data.weather[0].main;
+        this.date = new Date();
 
         console.log(data)
       },
